@@ -5,6 +5,7 @@ import java.util.*;
 
 public class GoodiesMain {
         public static void main(String[] args) throws Exception {
+            //fileinput reader to read from sample input text file
             FileInputStream fis=new FileInputStream("D:\\Family_Doc\\Nandu\\HighPeak_assignment\\Assignment\\input\\sample_input.txt");
             Scanner sc=new Scanner(fis);
             int number_of_employees = Integer.parseInt(sc.nextLine().split(": ")[1]);
@@ -24,7 +25,7 @@ public class GoodiesMain {
                     return a.price - b.price;
                 }
             });
-
+//logic check
             int min_diff = goodies_List.get(goodies_List.size()-1).price;
             int min_index = 0;
             for(int i=0;i<goodies_List.size()-number_of_employees+1;i++) {
@@ -35,7 +36,7 @@ public class GoodiesMain {
                     min_index = i;
                 }
             }
-
+//file writer to generate output file with below details
             FileWriter fw = new FileWriter("sample_output.txt");
             fw.write("The goodies selected for distribution are:\n\n");
             for(int i=min_index;i<min_index + number_of_employees; i++) {
